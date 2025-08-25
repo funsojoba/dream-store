@@ -13,8 +13,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 
     Product getProductById(Long productId);
-    List<Product> listProducts();
+
     List<Product> findByPriceBetween(BigDecimal min, BigDecimal max);
     List<Product> findByCategoryId(Long categoryId);
-    List<Product> findByProductName(String productName);
+    List<Product> findByName(String productName);
 }

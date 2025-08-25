@@ -2,9 +2,7 @@ package com.example.dream_shop.service.product;
 
 import com.example.dream_shop.model.Product;
 import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +15,13 @@ public class productController {
         this.productService = productService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Product> listProducts(){
         return productService.getProductList();
+    }
+
+    @PostMapping()
+    public Product createProduct(@RequestBody Product product){
+        return productService.addProduct(product);
     }
 }

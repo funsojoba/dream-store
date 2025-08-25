@@ -17,12 +17,13 @@ public class ProductService implements iProductService{
 
     @Override
     public Product addProduct(Product product) {
-        return null;
+        return productRepository.save(product);
+
     }
 
     @Override
     public List<Product> getProductList() {
-        return productRepository.listProducts();
+        return productRepository.findAll();
     }
 
     @Override
