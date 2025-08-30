@@ -1,4 +1,4 @@
-package com.example.dream_shop.model;
+package com.example.dream_shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

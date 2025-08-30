@@ -1,6 +1,6 @@
-package com.example.dream_shop.service.product;
+package com.example.dream_shop.repository;
 
-import com.example.dream_shop.model.Product;
+import com.example.dream_shop.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

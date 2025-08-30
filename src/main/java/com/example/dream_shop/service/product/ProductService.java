@@ -1,6 +1,9 @@
 package com.example.dream_shop.service.product;
 
-import com.example.dream_shop.model.Product;
+import com.example.dream_shop.entity.Product;
+import com.example.dream_shop.model.requests.CreateProductRequest;
+import com.example.dream_shop.model.response.ProductResponse;
+import com.example.dream_shop.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,16 +12,22 @@ import java.lang.Long;
 
 @Service
 public class ProductService implements iProductService{
+    private final ProductRepository productRepository;
+
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
-    private final ProductRepository productRepository;
-
     @Override
-    public Product addProduct(Product product) {
-        return productRepository.save(product);
+    public ProductResponse addProduct(CreateProductRequest request) {
+        Product product = new Product();
+        product.setName(request.getName());
+        product.setDescription(request.getDescription());
+        product.setPrice(request.getPrice());
+        product.setStock(request.getStock());
 
+        Product savedProduct = productRepository.save(product);
+        return new ProductResponse(savedProduct.getId(), savedProduct.getName(), savedProduct.getPrice());
     }
 
     @Override

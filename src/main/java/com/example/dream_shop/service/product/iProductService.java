@@ -1,11 +1,13 @@
 package com.example.dream_shop.service.product;
 
-import com.example.dream_shop.model.Product;
+import com.example.dream_shop.entity.Product;
+import com.example.dream_shop.model.requests.CreateProductRequest;
+import com.example.dream_shop.model.response.ProductResponse;
 
 import java.util.List;
 
 public interface iProductService {
-    Product addProduct(Product product);
+    ProductResponse addProduct(CreateProductRequest product);
 
     List<Product> getProductList();
 

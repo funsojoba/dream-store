@@ -1,7 +1,9 @@
 package com.example.dream_shop.service.product;
 
-import com.example.dream_shop.model.Product;
-import jakarta.websocket.server.PathParam;
+import com.example.dream_shop.entity.Product;
+import com.example.dream_shop.model.requests.CreateProductRequest;
+import com.example.dream_shop.model.response.ProductResponse;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class productController {
     }
 
     @PostMapping()
-    public Product createProduct(@RequestBody Product product){
-        return productService.addProduct(product);
+    public ProductResponse createProduct(@Valid @RequestBody CreateProductRequest productRequest){
+        return productService.addProduct(productRequest);
     }
 }
