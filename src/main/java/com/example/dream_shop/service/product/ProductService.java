@@ -21,13 +21,20 @@ public class ProductService implements iProductService{
     @Override
     public ProductResponse addProduct(CreateProductRequest request) {
         Product product = new Product();
+
         product.setName(request.getName());
         product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
-        product.setStock(request.getStock());
+        product.setBrand(request.getBrand());
 
         Product savedProduct = productRepository.save(product);
-        return new ProductResponse(savedProduct.getId(), savedProduct.getName(), savedProduct.getPrice());
+
+        return new ProductResponse(
+                savedProduct.getId(),
+                savedProduct.getName(),
+                savedProduct.getBrand(),
+                savedProduct.getPrice(),
+                savedProduct.getDescription());
     }
 
     @Override

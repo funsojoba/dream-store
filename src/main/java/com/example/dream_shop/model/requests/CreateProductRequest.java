@@ -27,8 +27,6 @@ public class CreateProductRequest {
     private int inventory;
     private String description;
 
-    @NotNull(message = "Price is required")
-    @Positive(message = "Price must be greater than zero")
     private Long categoryId;
 
 
